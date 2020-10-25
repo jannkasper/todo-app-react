@@ -14,11 +14,17 @@ import TextField from '@material-ui/core/TextField';
 
 class Header extends Component {
 
+    // handleOpenMenu = () => {
+    //     const aa = this.props.ref;
+    //     debugger;
+    //     // this.props.inputRef.current.getAlert();
+    // }
+
     render() {
         return (
             <AppBar style={{zIndex: 1600}}>
                 <Toolbar>
-                    <IconButton edge="start" color="inherit" aria-label="menu">
+                    <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => this.props.handleOpenMenu()}>
                         <MenuIcon />
                     </IconButton>
 

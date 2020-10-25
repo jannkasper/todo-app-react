@@ -3,7 +3,7 @@ import {ADD_FILTER} from "../constants/ActionTypes";
 const initialState = [
     { id:0, title: 'High' },
     { id:1, title: 'Medium' },
-    { id:2, title: 'Low' },
+    { id:2, title: 'Low' }
 ];
 
 

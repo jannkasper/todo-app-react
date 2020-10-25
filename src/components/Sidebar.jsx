@@ -27,7 +27,8 @@ class Sidebar extends Component {
 
         return (
             <Drawer
-                variant="permanent"
+                open={this.props.open}
+                variant="persistent"
                 PaperProps={{ style: { width: 240 } }}>
                 <Toolbar/>
 

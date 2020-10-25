@@ -1,15 +1,18 @@
-import React from 'react';
-import Header from "../containers/HeaderContainer";
+import React, {useRef, useState} from 'react';
 import Grid from '@material-ui/core/Grid';
+import Header from "../containers/HeaderContainer";
 import Sidebar from "../containers/SidebarContainer";
-import PageContent from "./PageContent"
+import Page from "../containers/PageContainer"
+import {MODE_TYPES} from "../constants/ModeTypes";
 
 function App() {
+    const[open, setOpen] = useState(true);
+
   return (
       <Grid>
-        <Header/>
-        <Sidebar/>
-        <PageContent/>
+        <Header handleOpenMenu={() => setOpen(!open)}/>
+        <Sidebar open={open}/>
+        <Page mode={MODE_TYPES.PROJECT} id={0}/>
       </Grid>
   );
 }
