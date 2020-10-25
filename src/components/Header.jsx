@@ -27,9 +27,9 @@ class Header extends Component {
                     </IconButton>
 
                     <TextField
-                        color="white"
+                        // color="white"
                         placeholder='Search...'
-                        inputStyle={{color: 'white', padding: '0 25px'}}
+                        // inputStyle={{color: 'white', padding: '0 25px'}}
                         style={{ backgroundColor: 'rgba(255,255,255,0.2)', borderRadius: 5 }}
                         InputProps={{
                             disableUnderline: true,
