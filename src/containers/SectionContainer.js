@@ -7,6 +7,8 @@ const mapStateToProps = (state, ownProps) => {
     switch (ownProps.mode) {
         case MODE_TYPES.PROJECT:
             return {todoList: state.todoStore.filter(e => e.projectId === ownProps.id).filter(e => e.status === STATUS_TYPE[ownProps.statusType].id)};
+        case MODE_TYPES.FILTER:
+            return {todoList: state.todoStore.filter(e => e.filterId === ownProps.id).filter(e => e.status === STATUS_TYPE[ownProps.statusType].id)};
         default:
             return {todoList: state.todoStore.filter(e => e.projectId === 0).filter(e => e.status === STATUS_TYPE[ownProps.statusType].id)};
     }

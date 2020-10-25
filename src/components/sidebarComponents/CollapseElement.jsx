@@ -8,6 +8,8 @@ import Collapse from "@material-ui/core/Collapse";
 import List from "@material-ui/core/List";
 import AddIcon from "@material-ui/icons/Add";
 import DialogWindow from './DialogWindow';
+import { NavLink} from 'react-router-dom';
+
 
 
 class CollapseElement extends Component {
@@ -37,12 +39,14 @@ class CollapseElement extends Component {
                 <Collapse in={this.state.open} timeout="auto" unmountOnExit>
                     <List component="nav" disablePadding>
                         { this.props.elementList.map(e => { return (
-                            <ListItem button key={e.id}>
-                                {/*<ListItemIcon>*/}
-                                {/*    <FiberManualRecordIcon fontSize={"small"}/>*/}
-                                {/*</ListItemIcon>*/}
-                                <ListItemText inset primary={e.title} />
-                            </ListItem>
+                            <NavLink to={"/" + this.props.name + "/" + e.id} style={{textDecoration:'none'}}>
+                                <ListItem button key={e.id}>
+                                    {/*<ListItemIcon>*/}
+                                    {/*    <FiberManualRecordIcon fontSize={"small"}/>*/}
+                                    {/*</ListItemIcon>*/}
+                                    <ListItemText inset primary={e.title} />
+                                </ListItem>
+                            </NavLink>
                         )})}
                     </List>
 

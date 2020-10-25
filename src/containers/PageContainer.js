@@ -5,7 +5,9 @@ import {MODE_TYPES} from "../constants/ModeTypes";
 const mapStateToProps = (state, ownProps) => {
     switch (ownProps.mode) {
         case MODE_TYPES.PROJECT:
-            return state.projectStore.find(e => e.id === ownProps.id);
+            return state.projectStore.find(e => e.id === parseInt(ownProps.id, 10));
+        case MODE_TYPES.FILTER:
+            return state.filterStore.find(e => e.id === parseInt(ownProps.id, 10));
         default:
             return state.projectStore.find(e => e.id === 0);
 
