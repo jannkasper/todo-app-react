@@ -9,6 +9,7 @@ import List from "@material-ui/core/List";
 import AddIcon from "@material-ui/icons/Add";
 import DialogWindow from './DialogWindow';
 import { NavLink} from 'react-router-dom';
+import Divider from "@material-ui/core/Divider";
 
 
 
@@ -57,6 +58,8 @@ class CollapseElement extends Component {
                         <ListItemText primary={`Add ${this.props.name}`} />
                     </ListItem>
                 </Collapse>
+
+                <Divider />
 
                 <DialogWindow
                     name={this.props.name}

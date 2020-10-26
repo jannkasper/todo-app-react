@@ -8,6 +8,8 @@ const mapStateToProps = (state, ownProps) => {
             return state.projectStore.find(e => e.id === parseInt(ownProps.id, 10));
         case MODE_TYPES.FILTER:
             return state.filterStore.find(e => e.id === parseInt(ownProps.id, 10));
+        case MODE_TYPES.INBOX:
+            return {title: 'Inbox'};
         default:
             return state.projectStore.find(e => e.id === 0);
 

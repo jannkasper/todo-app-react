@@ -15,9 +15,9 @@ class Sidebar extends Component {
 
     render() {
         const singleElements = [
-            {name: 'Inbox', icon: <InboxIcon/>},
-            {name: 'Today', icon: <TodayIcon/>},
-            {name: 'Calendar', icon: <DateRangeIcon/>}
+            {name: 'Inbox', icon: <InboxIcon/>, url :'/'},
+            {name: 'Today', icon: <TodayIcon/>, url :'today'},
+            {name: 'Calendar', icon: <DateRangeIcon/>, url :'/calendar'}
             ];
 
         const collapseElements = [
@@ -33,7 +33,7 @@ class Sidebar extends Component {
                 <Toolbar/>
 
                 <List>
-                    {singleElements.map((e, index) => <SingleElement key={index} name={e.name} icon={e.icon} />)}
+                    {singleElements.map((e, index) => <SingleElement key={index} name={e.name} icon={e.icon} url={e.url}/>)}
                 </List>
 
                 <Divider />
