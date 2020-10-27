@@ -40,8 +40,8 @@ class CollapseElement extends Component {
                 <Collapse in={this.state.open} timeout="auto" unmountOnExit>
                     <List component="nav" disablePadding>
                         { this.props.elementList.map(e => { return (
-                            <NavLink to={"/" + this.props.name + "/" + e.id} style={{textDecoration:'none'}}>
-                                <ListItem button key={e.id}>
+                            <NavLink key={e.id} to={"/" + this.props.name + "/" + e.id} style={{textDecoration:'none'}}>
+                                <ListItem button>
                                     {/*<ListItemIcon>*/}
                                     {/*    <FiberManualRecordIcon fontSize={"small"}/>*/}
                                     {/*</ListItemIcon>*/}

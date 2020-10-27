@@ -1,12 +1,12 @@
-import {ADD_TODO} from "../constants/ActionTypes";
+import {ADD_TODO, UPDATE_TODO} from "../constants/ActionTypes";
 import {STATUS_TYPE} from '../constants/StatusTypes'
 
 const initialState = [
-    { id:0, projectId: 0, filterId: 0, status: 0, text: 'Todo 1' },
-    { id:1, projectId: 0, filterId: 0, status: 1, text: 'Todo 2' },
-    { id:2, projectId: 1, filterId: 1, status: 3, text: 'Todo 3' },
-    { id:3, projectId: null, filterId: 1, status: 3, text: 'Todo 4' },
-    { id:4, projectId: null, filterId: 2, status: 3, text: 'Todo 5' },
+    { id:1, projectId: 1, filterId: 1, statusId: 1, text: 'Todo 1' },
+    { id:2, projectId: 1, filterId: 1, statusId: 2, text: 'Todo 2' },
+    { id:3, projectId: 2, filterId: 2, statusId: 4, text: 'Todo 3' },
+    { id:4, projectId: null, filterId: 2, statusId: 4, text: 'Todo 4' },
+    { id:5, projectId: null, filterId: 3, statusId: 4, text: 'Todo 5' },
 ];
 
 export default function todoStore(state = initialState, action) {
@@ -18,10 +18,14 @@ export default function todoStore(state = initialState, action) {
                     id: state.reduce((maxId, filter) => Math.max(filter.id, maxId), -1) + 1,
                     projectId: action.projectId,
                     filterId: action.filterId,
-                    status: STATUS_TYPE[action.status].id,
+                    statusId: action.statusId,
                     text: action.text
                 }
             ]
+        }
+        case UPDATE_TODO: {
+            return state.map(item => {return item.id === action.id ?
+                {...item, projectId: action.projectId, filterId: action.filterId, statusId: action.statusId, text: action.text} : item});
         }
         default:
             return state;

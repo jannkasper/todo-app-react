@@ -7,13 +7,13 @@ import {addTodo} from "../actions/projectActions";
 const mapStateToProps = (state, ownProps) => {
     switch (ownProps.mode) {
         case MODE_TYPES.PROJECT:
-            return {projectId: ownProps.id, todoList: state.todoStore.filter(e => e.projectId === ownProps.id).filter(e => e.status === STATUS_TYPE[ownProps.statusType].id)};
+            return {projectId: ownProps.id, todoList: state.todoStore.filter(e => e.projectId === ownProps.id).filter(e => e.statusId === STATUS_TYPE[ownProps.statusType].id)};
         case MODE_TYPES.FILTER:
-            return {filterId: ownProps.id, todoList: state.todoStore.filter(e => e.filterId === ownProps.id).filter(e => e.status === STATUS_TYPE[ownProps.statusType].id)};
+            return {filterId: ownProps.id, todoList: state.todoStore.filter(e => e.filterId === ownProps.id).filter(e => e.statusId === STATUS_TYPE[ownProps.statusType].id)};
         case MODE_TYPES.INBOX:
-            return {todoList: state.todoStore.filter(e => e.projectId === undefined || e.projectId == null).filter(e => e.status === STATUS_TYPE[ownProps.statusType].id)};
+            return {todoList: state.todoStore.filter(e => e.projectId === undefined || e.projectId == null).filter(e => e.statusId === STATUS_TYPE[ownProps.statusType].id)};
         default:
-            return {todoList: state.todoStore.filter(e => e.projectId === 0).filter(e => e.status === STATUS_TYPE[ownProps.statusType].id)};
+            return {todoList: state.todoStore.filter(e => e.projectId === 0).filter(e => e.statusId === STATUS_TYPE[ownProps.statusType].id)};
     }
 };
 
