@@ -2,12 +2,17 @@ import React, {Component} from "react";
 import {STATUS_TYPE} from "../../constants/StatusTypes";
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
-import DialogWindow from "../sidebarComponents/DialogWindow";
 import DialogAddTodo from "../../containers/DialogAddTodoContainer";
+import ButtonGroup from '@material-ui/core/ButtonGroup';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+
+
+
 
 class Section extends Component {
 
-    state = { openDialog: false, editMode: false,  todoId: '', todoText: ''};
+    state = { openButton: false, openDialog: false, editMode: false,  todoId: '', todoText: ''};
 
     handleOpenDialog = () => {
         this.setState({editMode: false, todoId: '', todoText: ''});
@@ -29,7 +34,15 @@ class Section extends Component {
         <div>
             <h3>{STATUS_TYPE[this.props.statusType].name}</h3>
             {this.props.todoList.map((e, index) =>
-                <Button key={index} variant="outlined" style={{display: "flex"}} onClick={() => this.handleEditDialog(e.id, e.text)}>{e.text}</Button>
+                    <ButtonGroup key={index} variant="text" style={{display: "flex", justifyContent: 'flex-end'}}>
+                    <Button>{e.text}</Button>
+                        <Button onClick={() => this.handleEditDialog(e.id, e.text)}>
+                            <EditIcon/>
+                        </Button>
+                        <Button onClick={() => this.props.deleteTodo(e.id)}>
+                            <DeleteIcon/>
+                        </Button>
+                    </ButtonGroup>
                 // <p key={index}>{e.text}</p>
             )}
             <Button

@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import Section from "../components/pageComponents/Section";
 import {MODE_TYPES} from "../constants/ModeTypes";
 import {STATUS_TYPE} from "../constants/StatusTypes";
-import {addTodo} from "../actions/projectActions";
+import {addTodo, deleteTodo} from "../actions/projectActions";
 
 const mapStateToProps = (state, ownProps) => {
     switch (ownProps.mode) {
@@ -21,4 +21,4 @@ const mapDispatchToProps = () => (dispatch, ownProps) => {
 };
 
 
-export default connect(mapStateToProps, {})(Section)
+export default connect(mapStateToProps, {deleteTodo})(Section)
