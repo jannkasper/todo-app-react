@@ -77,6 +77,7 @@ class DialogAddTodo extends Component {
                         handleChange={this.handleChangeSelect.bind(this)}
                         selectedId={this.state.projectId || this.props.projectId}
                         disabled={!this.props.editMode && Boolean(this.props.projectId)}
+                        displayEmpty={true}
                         elementList={this.props.projectList}
                     />
                     <SelectInput
@@ -85,6 +86,7 @@ class DialogAddTodo extends Component {
                         handleChange={this.handleChangeSelect.bind(this)}
                         selectedId={this.state.filterId || this.props.filterId}
                         disabled={!this.props.editMode && Boolean(this.props.filterId)}
+                        displayEmpty={true}
                         elementList={this.props.filterList}
                     />
                     <SelectInput
@@ -93,6 +95,7 @@ class DialogAddTodo extends Component {
                         handleChange={this.handleChangeSelect.bind(this)}
                         selectedId={this.state.statusId || (this.props.status && STATUS_TYPE[this.props.status].id)}
                         disabled={!this.props.editMode && Boolean(this.props.status)}
+                        displayEmpty={false}
                         elementList={this.props.statusList}
                     />
 
