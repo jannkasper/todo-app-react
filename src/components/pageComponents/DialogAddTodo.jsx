@@ -91,7 +91,7 @@ class DialogAddTodo extends Component {
                         title="Status"
                         variable="statusId"
                         handleChange={this.handleChangeSelect.bind(this)}
-                        selectedId={this.state.statusId || STATUS_TYPE[this.props.status].id}
+                        selectedId={this.state.statusId || (this.props.status && STATUS_TYPE[this.props.status].id)}
                         disabled={!this.props.editMode && Boolean(this.props.status)}
                         elementList={this.props.statusList}
                     />

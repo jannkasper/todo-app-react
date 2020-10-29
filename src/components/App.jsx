@@ -18,9 +18,9 @@ function App() {
           <Switch>
               <Route path="/project/:id" render={routeProps => <Page id={routeProps.match.params.id} mode={MODE_TYPES.PROJECT}/>}/>
               <Route path="/filter/:id" render={routeProps => <Page id={routeProps.match.params.id} mode={MODE_TYPES.FILTER}/>}/>
-              <Route path="/" render={routeProps => <Page mode={MODE_TYPES.INBOX}/>}/>
-              <Redirect to="/"/>
-              <Route render={() => <h1>Not found</h1>}/>
+              <Route exact path="/" render={routeProps => <Page mode={MODE_TYPES.INBOX}/>}/>
+              <Route path="/error" render={() => <h1>Not found</h1>}/>
+              <Redirect to="/error"/>
           </Switch>
         </Box>
       </BrowserRouter>

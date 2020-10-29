@@ -6,13 +6,14 @@ import DialogAddTodo from "../../containers/DialogAddTodoContainer";
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import Divider from '@material-ui/core/Divider';
 
 
 
 
 class Section extends Component {
 
-    state = { openButton: false, openDialog: false, editMode: false,  todoId: '', todoText: ''};
+    state = { openDialog: false, editMode: false,  todoId: '', todoText: ''};
 
     handleOpenDialog = () => {
         this.setState({editMode: false, todoId: '', todoText: ''});
@@ -33,6 +34,15 @@ class Section extends Component {
         return (
         <div>
             <h3>{STATUS_TYPE[this.props.statusType].name}</h3>
+            <Button
+                color="primary"
+                startIcon={<AddIcon fontSize="large" />}
+                onClick={() => this.handleOpenDialog()}>
+                Add task
+            </Button>
+
+            <Divider />
+
             {this.props.todoList.map((e, index) =>
                     <ButtonGroup key={index} variant="text" style={{display: "flex", justifyContent: 'flex-end'}}>
                     <Button>{e.text}</Button>
@@ -45,12 +55,6 @@ class Section extends Component {
                     </ButtonGroup>
                 // <p key={index}>{e.text}</p>
             )}
-            <Button
-                color="primary"
-                startIcon={<AddIcon fontSize="large" />}
-                onClick={() => this.handleOpenDialog()}>
-                Add task
-            </Button>
 
             <DialogAddTodo
                 id={this.state.todoId}

@@ -8,17 +8,24 @@ import AddIcon from '@material-ui/icons/Add';
 import SearchIcon from '@material-ui/icons/Search';
 import InputAdornment from "@material-ui/core/InputAdornment";
 import TextField from '@material-ui/core/TextField';
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import {Link} from "react-router-dom";
+import DialogAddTodo from "../containers/DialogAddTodoContainer";
+import {STATUS_TYPE} from "../constants/StatusTypes";
 
 
 
 
 class Header extends Component {
 
-    // handleOpenMenu = () => {
-    //     const aa = this.props.ref;
-    //     debugger;
-    //     // this.props.inputRef.current.getAlert();
-    // }
+    state = { openDialog: false };
+
+    handleOpenDialog = () => {
+        const openDialog = this.state.openDialog;
+        this.setState({openDialog: !openDialog})
+    };
 
     render() {
         return (
@@ -28,9 +35,12 @@ class Header extends Component {
                         <MenuIcon />
                     </IconButton>
 
-                    <IconButton edge="start" color="inherit" aria-label="menu">
-                        <HomeOutlinedIcon />
-                    </IconButton>
+                    <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
+                        <IconButton edge="start" color="inherit" aria-label="menu">
+                            <HomeOutlinedIcon />
+                        </IconButton>
+                    </Link>
+
 
                     <TextField
                         // color="white"
@@ -49,10 +59,15 @@ class Header extends Component {
                         }}
                     />
 
-                    <IconButton edge="end" color="inherit" aria-label="menu">
+                    <IconButton onClick={() => this.handleOpenDialog()} edge="end" color="inherit" aria-label="menu">
                         <AddIcon />
                     </IconButton>
                 </Toolbar>
+
+                <DialogAddTodo
+                    open={this.state.openDialog}
+                    handleOpen={this.handleOpenDialog.bind(this)}
+                />
             </AppBar>
         )
     }

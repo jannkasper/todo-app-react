@@ -2,11 +2,11 @@ import {ADD_TODO, UPDATE_TODO, DELETE_TODO} from "../constants/ActionTypes";
 import {STATUS_TYPE} from '../constants/StatusTypes'
 
 const initialState = [
-    { id:1, projectId: 1, filterId: 1, statusId: 1, text: 'Todo 1' },
-    { id:2, projectId: 1, filterId: 1, statusId: 2, text: 'Todo 2' },
-    { id:3, projectId: 2, filterId: 2, statusId: 4, text: 'Todo 3' },
-    { id:4, projectId: null, filterId: 2, statusId: 4, text: 'Todo 4 Hello' },
-    { id:5, projectId: null, filterId: 3, statusId: 4, text: 'Todo 5' },
+    { id:1, projectId: 1, filterId: 1, statusId: 1, text: 'PLAN HOLIDAYS' },
+    { id:2, projectId: 1, filterId: 1, statusId: 2, text: 'GROCERIES' },
+    { id:3, projectId: 2, filterId: 2, statusId: 4, text: 'MATH EXERCISES' },
+    { id:4, projectId: null, filterId: 2, statusId: 3, text: 'MAC&CHEESE' },
+    { id:5, projectId: null, filterId: 3, statusId: 3, text: 'PLAN A HOLIDAYS' },
 ];
 
 export default function todoStore(state = initialState, action) {
