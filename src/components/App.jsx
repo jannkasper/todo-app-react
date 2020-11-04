@@ -1,13 +1,17 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useEffect} from 'react';
+import {connect} from 'react-redux'
 import Box from '@material-ui/core/Box';
 import Header from "../containers/HeaderContainer";
 import Sidebar from "../containers/SidebarContainer";
 import Page from "../containers/PageContainer"
 import {MODE_TYPES} from "../constants/ModeTypes";
 import {Route, NavLink, Switch, Redirect, BrowserRouter} from 'react-router-dom';
+import {initFilter, initProject, initTodo} from "../actions/projectActions";
 
-function App() {
+function App(props) {
     const[open, setOpen] = useState(true);
+
+    useEffect(() => {props.init()}, []);
 
   return (
       <BrowserRouter>
@@ -27,4 +31,14 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch => {
+    return {
+        init: () => {
+            dispatch(initProject());
+            dispatch(initFilter());
+            dispatch(initTodo());
+        }
+    };
+};
+
+export default connect(null, mapDispatchToProps)(App);

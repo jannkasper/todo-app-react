@@ -1,4 +1,4 @@
-import {ADD_FILTER} from "../constants/ActionTypes";
+import {ADD_FILTER, READ_FILTERS} from "../constants/ActionTypes";
 
 const initialState = [
     { id:1, title: 'High' },
@@ -7,7 +7,7 @@ const initialState = [
 ];
 
 
-export default function projectStore(state = initialState, action) {
+export default function filterStore(state = initialState, action) {
     switch(action.type) {
         case ADD_FILTER: {
             return  [
@@ -18,6 +18,8 @@ export default function projectStore(state = initialState, action) {
                 }
             ]
         }
+        case READ_FILTERS:
+            return action.filters;
         default:
             return state
     }

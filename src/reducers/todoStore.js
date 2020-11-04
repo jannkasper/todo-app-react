@@ -1,4 +1,4 @@
-import {ADD_TODO, UPDATE_TODO, DELETE_TODO} from "../constants/ActionTypes";
+import {ADD_TODO, UPDATE_TODO, DELETE_TODO, READ_TODOS} from "../constants/ActionTypes";
 import {STATUS_TYPE} from '../constants/StatusTypes'
 
 const initialState = [
@@ -30,6 +30,8 @@ export default function todoStore(state = initialState, action) {
         case DELETE_TODO: {
             return state.filter(item => item.id !== action.id);
         }
+        case READ_TODOS:
+            return action.todos;
         default:
             return state;
     }
