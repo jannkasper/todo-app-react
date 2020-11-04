@@ -2,11 +2,11 @@ import {ADD_TODO, UPDATE_TODO, DELETE_TODO, READ_TODOS} from "../constants/Actio
 import {STATUS_TYPE} from '../constants/StatusTypes'
 
 const initialState = [
-    { id:1, projectId: 1, filterId: 1, statusId: 1, text: 'PLAN HOLIDAYS' },
-    { id:2, projectId: 1, filterId: 1, statusId: 2, text: 'GROCERIES' },
-    { id:3, projectId: 2, filterId: 2, statusId: 4, text: 'MATH EXERCISES' },
-    { id:4, projectId: null, filterId: 2, statusId: 3, text: 'MAC&CHEESE' },
-    { id:5, projectId: null, filterId: 3, statusId: 3, text: 'PLAN A HOLIDAYS' },
+    // { id:1, projectId: 1, filterId: 1, statusId: 1, text: 'PLAN HOLIDAYS' },
+    // { id:2, projectId: 1, filterId: 1, statusId: 2, text: 'GROCERIES' },
+    // { id:3, projectId: 2, filterId: 2, statusId: 4, text: 'MATH EXERCISES' },
+    // { id:4, projectId: null, filterId: 2, statusId: 3, text: 'MAC&CHEESE' },
+    // { id:5, projectId: null, filterId: 3, statusId: 3, text: 'PLAN A HOLIDAYS' },
 ];
 
 export default function todoStore(state = initialState, action) {
@@ -31,7 +31,7 @@ export default function todoStore(state = initialState, action) {
             return state.filter(item => item.id !== action.id);
         }
         case READ_TODOS:
-            return action.todos;
+            return action.items;
         default:
             return state;
     }

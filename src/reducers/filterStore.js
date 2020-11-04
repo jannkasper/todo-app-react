@@ -1,9 +1,9 @@
 import {ADD_FILTER, READ_FILTERS} from "../constants/ActionTypes";
 
 const initialState = [
-    { id:1, title: 'High' },
-    { id:2, title: 'Medium' },
-    { id:3, title: 'Low' }
+    // { id:1, title: 'High' },
+    // { id:2, title: 'Medium' },
+    // { id:3, title: 'Low' }
 ];
 
 
@@ -19,7 +19,7 @@ export default function filterStore(state = initialState, action) {
             ]
         }
         case READ_FILTERS:
-            return action.filters;
+            return action.items;
         default:
             return state
     }

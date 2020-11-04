@@ -6,7 +6,7 @@ import Sidebar from "../containers/SidebarContainer";
 import Page from "../containers/PageContainer"
 import {MODE_TYPES} from "../constants/ModeTypes";
 import {Route, NavLink, Switch, Redirect, BrowserRouter} from 'react-router-dom';
-import {initFilter, initProject, initTodo} from "../actions/projectActions";
+import {initAppStore} from "../actions/projectActions";
 
 function App(props) {
     const[open, setOpen] = useState(true);
@@ -34,9 +34,7 @@ function App(props) {
 const mapDispatchToProps = dispatch => {
     return {
         init: () => {
-            dispatch(initProject());
-            dispatch(initFilter());
-            dispatch(initTodo());
+            dispatch(initAppStore());
         }
     };
 };

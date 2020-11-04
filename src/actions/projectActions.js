@@ -9,37 +9,21 @@ export const addTodo = (projectId, filterId, statusId, text) => ({type: types.AD
 export const updateTodo = (id, projectId, filterId, statusId, text) => ({type: types.UPDATE_TODO, id, projectId, filterId, statusId, text});
 export const deleteTodo = (id) => ({type: types.DELETE_TODO, id});
 
-export const initProject = () => {
+export const readItemsSuccess = (type, items) => ({type, items});
+
+export const initAppStore = () => {
     return dispatch => {
         axios.get(`https://jkasper-todo-app-api.herokuapp.com/project/all`)
             .then(res => {
-                dispatch(readProjectsSuccess(res.data.projects));
+                dispatch(readItemsSuccess(types.READ_PROJECTS, res.data.projects));
             });
-    };
-};
-
-export const readProjectsSuccess = projects => ({type: types.READ_PROJECTS, projects});
-
-
-export const initFilter = () => {
-    return dispatch => {
         axios.get(`https://jkasper-todo-app-api.herokuapp.com/filter/all`)
             .then(res => {
-                dispatch(readFiltersSuccess(res.data.filters));
+                dispatch(readItemsSuccess(types.READ_FILTERS, res.data.filters));
             });
-    };
-};
-
-export const readFiltersSuccess = filters => ({type: types.READ_FILTERS, filters});
-
-
-export const initTodo = () => {
-    return dispatch => {
         axios.get(`https://jkasper-todo-app-api.herokuapp.com/todo/all`)
             .then(res => {
-                dispatch(readTodosSuccess(res.data.todos));
+                dispatch(readItemsSuccess(types.READ_TODOS, res.data.todos));
             });
     };
 };
-
-export const readTodosSuccess = todos => ({type: types.READ_TODOS, todos});
